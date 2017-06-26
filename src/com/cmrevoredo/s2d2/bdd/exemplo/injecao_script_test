@@ -1,0 +1,6 @@
+Story: Atacante tenta exploracao por ataque XSS
+
+Scenario: Formulario recebendo um ataque de XSS
+Given Localizar produto 10
+When Atualizar o produto 10 com a descricao <script>alert('xss');</script>
+Then O filtro deve capturar o ataque e identifica-lo como XSS
