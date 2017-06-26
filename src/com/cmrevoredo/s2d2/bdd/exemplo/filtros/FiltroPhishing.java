@@ -1,4 +1,4 @@
-package com.cmrevoredo.s2d2.bdd.utils;
+package com.cmrevoredo.s2d2.bdd.exemplo.filtros;
 
 public final class FiltroPhishing {
 

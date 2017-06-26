@@ -1,4 +1,4 @@
-package com.cmrevoredo.s2d2.bdd.exemplo;
+package com.cmrevoredo.s2d2.bdd.exemplo.steps;
 
 import org.jbehave.scenario.annotations.Given;
 import org.jbehave.scenario.annotations.Then;
@@ -6,7 +6,7 @@ import org.jbehave.scenario.annotations.When;
 import org.jbehave.scenario.steps.Steps;
 import org.junit.Assert;
 
-import com.cmrevoredo.s2d2.bdd.utils.FiltroPhishing;
+import com.cmrevoredo.s2d2.bdd.exemplo.filtros.FiltroPhishing;
 import com.cmrevoredo.s2d2.bdd.utils.HttpRequestor;
 
 public class AtaquePhishing extends Steps {

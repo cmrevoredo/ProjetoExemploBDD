@@ -1,4 +1,4 @@
-package com.cmrevoredo.s2d2.bdd.exemplo;
+package com.cmrevoredo.s2d2.bdd.exemplo.steps;
 
 import org.jbehave.scenario.annotations.Given;
 import org.jbehave.scenario.annotations.Then;
