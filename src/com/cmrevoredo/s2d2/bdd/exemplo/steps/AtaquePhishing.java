@@ -18,19 +18,43 @@ public class AtaquePhishing extends Steps {
 
 	}
 
-	@When("Consultar no PhishTank $filtro a url $url")
-	public void preencherDadosDoProduto(String filtro, String url) {
-		try {
-			String resultado = HttpRequestor.get(filtro+"?url="+url);
-			isPhishing = FiltroPhishing.isPhishing(resultado);
-		} catch (Exception e) {
-			System.out.println(e.getMessage());
+	@When("Consultar no $repositorio a url $url")
+	public void preencherDadosDoProduto(String repositorio, String url) {
+		switch (repositorio.toLowerCase()) {
+		case "phishtank":			
+			try {
+				String resultado = HttpRequestor.get(FiltroPhishing.URL_PHISHTANK+url);
+				isPhishing = FiltroPhishing.getInstance().isPhishingPhishTank(resultado);
+			} catch (Exception e) {
+				System.out.println(e.getMessage());
+			}				
+			break;
+		case "safebrowsing":			
+			try {
+				String payload = FiltroPhishing.getInstance().getJsonPayLoadString().replace("$XXX___XXX$", url);
+				String resultado = HttpRequestor.post(FiltroPhishing.URL_SAFE_BROWSING, payload);
+				isPhishing = FiltroPhishing.getInstance().isPhishingSafeBrowsing(resultado);
+			} catch (Exception e) {
+				System.out.println(e.getMessage());
+			}				
+			break;
+		default:
+			break;
 		}
 	}
 
-	@Then("Reconhecer o ataque e identifica-lo como $resultado")
+	@Then("O resultado do filtro será $resultado")
 	public void atualizarDadosDoProduto(String resultado) {
-		Assert.assertTrue(isPhishing);
-		System.out.println("O filtro capturou um ataque do tipo: " + resultado);
+		switch (resultado) {
+		case "PHISHING":
+			Assert.assertTrue(isPhishing);
+			break;
+		case "NO-PHISHING":
+			Assert.assertFalse(isPhishing);
+			break;
+		default:
+			break;
+		}		
+		System.out.println("O filtro resultou em " + resultado);
 	}
 }

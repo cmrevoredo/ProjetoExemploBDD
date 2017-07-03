@@ -1,6 +1,0 @@
-Story: Atacante tenta exploracao por ataque PHISHING
-
-Scenario: Usuario recebe uma url maliciosa
-Given Acessar a url http://paypal.com-account-verif.info/
-When Consultar no PhishTank http://checkurl.phishtank.com/checkurl/index.php a url 	http://ashafilms.com/src/PayPal_Security/
-Then Reconhecer o ataque e identifica-lo como PHISHING

@@ -1,0 +1,6 @@
+Story: Atacante tenta exploracao por ataque PHISHING
+
+Scenario: Usuario recebe uma url maliciosa
+Given Acessar a url http://paypal.com-account-verif.info/
+When Consultar no SafeBrowsing a url http://paypal.com-account-verif.info/
+Then O resultado do filtro será PHISHING

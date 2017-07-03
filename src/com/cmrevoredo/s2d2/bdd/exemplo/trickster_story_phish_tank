@@ -1,0 +1,6 @@
+Story: Atacante tenta exploracao por ataque PHISHING
+
+Scenario: Usuario recebe uma url maliciosa
+Given Acessar a url http://www.google.com
+When Consultar no PhishTank a url http://www.google.com
+Then O resultado do filtro será NO-PHISHING

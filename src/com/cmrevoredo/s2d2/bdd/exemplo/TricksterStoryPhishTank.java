@@ -4,9 +4,9 @@ import org.jbehave.scenario.Scenario;
 
 import com.cmrevoredo.s2d2.bdd.exemplo.steps.AtaquePhishing;
 
-public class TricksterStory extends Scenario {
+public class TricksterStoryPhishTank extends Scenario {
 
-	public TricksterStory() {
+	public TricksterStoryPhishTank() {
 		addSteps(new AtaquePhishing());
 	}
 
